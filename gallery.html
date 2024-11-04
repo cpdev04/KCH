@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Medixi - Medical and Health Care HTML Template - Our Doctors</title>
+    <title>Medixi - Medical and Health Care HTML Template - Contact Us</title>
     <meta name="author" content="Vecuro">
     <meta name="description" content="Medixi - Medical and Health Care HTML Template">
     <meta name="keywords" content="Medixi - Medical and Health Care HTML Template">
@@ -44,23 +44,80 @@
     <link rel="stylesheet" href="assets/css/animate.min.css">
     <!-- Theme Custom CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://kit.fontawesome.com/0b170b98a9.js" crossorigin="anonymous"></script>
+    <style>
+         /* Styles for the image grid */
+         .main {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            margin: auto;
+            gap: 10px;
+        }
+        .tiler {
+            flex: 1 1 calc(33.33% - 10px); /* 3 images per row */
+            cursor: pointer;
+        }
+        .tiler img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* Overlay and Preview Styles */
+        .preview-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+        }
+        .preview-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            max-width: 90%;
+            max-height: 80vh;
+        }
+        .preview-image {
+            display: block;
+            max-width: 100%;
+            max-height: 100%;
+        }
+        .preview-navigation {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .preview-navigation button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+            margin: 0 5px;
+        }
+        #closeButton {
+            cursor: pointer;
+            position: absolute;
+            top: -32px;
+            right: -12px;
+            font-size: 30px;
+            color: white;
+        }
+    </style>
 
 </head>
 
 <body class="">
-
-
-    <!--[if lte IE 9]>
-    	<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-  <![endif]-->
-
-
-
-    <!--********************************
-   		Code Start From Here 
-	******************************** -->
-
-
 
 
     <!--==============================
@@ -82,7 +139,7 @@
   ============================== -->
   <div class="vs-menu-wrapper">
     <div class="vs-menu-area text-center">
-        <button class="vs-menu-toggle"><i class="fal fa-times"></i></button>
+        <button class="vs-menu-toggle"><i class="fa-solid fa-bars"></i></button>
         <div class="mobile-logo">
             <a href="index.html"><img src="assets/img/KC_Logo.png" alt="Medixi"></a>
         </div>
@@ -105,7 +162,6 @@
                 <li>
                     <a href="gallery.html">Gallery</a>
                 </li>
-
                 <li>
                     <a href="contact.html">Contact Us</a>
                 </li>
@@ -118,7 +174,7 @@ Sidemenu
 ============================== -->
 <div class="sidemenu-wrapper d-none d-lg-block  ">
     <div class="sidemenu-content">
-        <button class="closeButton sideMenuCls"><i class="far fa-times"></i></button>
+        <button class="closeButton sideMenuCls"><i class="fa-solid fa-x"></i></button>
         <div class="widget footer-widget  ">
             <div class="vs-widget-about">
                 <div class="footer-logo">
@@ -159,7 +215,6 @@ Sidemenu
        
     </div>
 </div>
-
   
     <!--==============================
         Header Area
@@ -249,10 +304,10 @@ Sidemenu
                                     </ul>
                                 </nav>
                                 <button class="vs-menu-toggle d-inline-block d-lg-none"><i class="fas fa-bars"></i></button>
-                            </div>
+                            </div> 
                             <div class="col-auto gap-3 d-none d-lg-flex">
-                                <a href="#" class="icon-btn style3 searchBoxTggler"><i class="far fa-search"></i></a>
-                                <a href="#" class="icon-btn style3 sideMenuToggler"><i class="far fa-bars"></i></a>
+                                <a href="#" class="icon-btn style3 searchBoxTggler"><i class="fa-solid fa-magnifying-glass"></i></a>
+                                <a href="#" class="icon-btn style3 sideMenuToggler"><i class="fa-solid fa-bars"></i></a>
                             </div>
                             <div class="col-auto d-none-xxxl">
                                 <div class="header-call phone-box d-flex align-items-center style2">
@@ -277,178 +332,51 @@ Sidemenu
         <div class="parallax" data-parallax-image="assets/img/breadcurmb/breadcurmb-1-1.jpg"></div>
         <div class="container z-index-common">
             <div class="breadcumb-content">
-                <h1 class="breadcumb-title">Our Doctors</h1>
+                <h1 class="breadcumb-title">Gallery</h1>
                 <div class="breadcumb-menu-wrap">
                     <i class="far fa-home-lg"></i>
                     <ul class="breadcumb-menu">
                         <li><a href="index.html">Home</a></li>
-                        <li class="active">Our Doctors</li>
+                        <li class="active">Contact Us</li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
     <!--==============================
-    Team Area
+      Gallery
     ==============================-->
-    <section class="vs-team-wrapper space">
-        <div class="container">
-            <div class="row ">
-                <div class="col-md-6 col-xl-4 mb-30 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="team-card">
-                        <div class="team-head">
-                            <img src="assets/img/team/t-1-1.png" alt="Team Area" class="w-100">
-                            <div class="team-card-links">
-                                <a class="team-links-toggler" href="#"><i class="fas fa-share-alt"></i></a>
-                                <div class="team-social">
-                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fas fa-basketball-ball"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="team-body">
-                            <h3 class="h4 mb-0"><a href="team-details.html" class="text-reset">David Smith</a></h3>
-                            <p class="fs-xs degi text-theme mb-2">Specialist</p>
-                            <p class="fs-xs">Conceptualize user-centric web-readiness via economically sound e-services. Interactively coordinate next-generation </p>
-                            <div class="">
-                                <p class="fs-xs team-info"><i class="fas fa-phone text-theme"></i><a class="text-reset" href="tel:+592201520156">+592 2015 20156</a></p>
-                                <p class="fs-xs team-info"><i class="fas fa-envelope text-theme"></i><a class="text-reset" href="mailto:info.example@mail.com">info.example@mail.com</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xl-4 mb-30 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="team-card">
-                        <div class="team-head">
-                            <img src="assets/img/team/t-1-2.png" alt="Team Area" class="w-100">
-                            <div class="team-card-links">
-                                <a class="team-links-toggler" href="#"><i class="fas fa-share-alt"></i></a>
-                                <div class="team-social">
-                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fas fa-basketball-ball"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="team-body">
-                            <h3 class="h4 mb-0"><a href="team-details.html" class="text-reset">Vivi Marian</a></h3>
-                            <p class="fs-xs degi text-theme mb-2">Osteopathic</p>
-                            <p class="fs-xs">Conceptualize user-centric web-readiness via economically sound e-services. Interactively coordinate next-generation </p>
-                            <div class="">
-                                <p class="fs-xs team-info"><i class="fas fa-phone text-theme"></i><a class="text-reset" href="tel:+592201520156">+592 2015 20156</a></p>
-                                <p class="fs-xs team-info"><i class="fas fa-envelope text-theme"></i><a class="text-reset" href="mailto:info.example@mail.com">info.example@mail.com</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xl-4 mb-30 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="team-card">
-                        <div class="team-head">
-                            <img src="assets/img/team/t-1-3.png" alt="Team Area" class="w-100">
-                            <div class="team-card-links">
-                                <a class="team-links-toggler" href="#"><i class="fas fa-share-alt"></i></a>
-                                <div class="team-social">
-                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fas fa-basketball-ball"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="team-body">
-                            <h3 class="h4 mb-0"><a href="team-details.html" class="text-reset">Farhan Moris</a></h3>
-                            <p class="fs-xs degi text-theme mb-2">Pediatrician</p>
-                            <p class="fs-xs">Conceptualize user-centric web-readiness via economically sound e-services. Interactively coordinate next-generation </p>
-                            <div class="">
-                                <p class="fs-xs team-info"><i class="fas fa-phone text-theme"></i><a class="text-reset" href="tel:+592201520156">+592 2015 20156</a></p>
-                                <p class="fs-xs team-info"><i class="fas fa-envelope text-theme"></i><a class="text-reset" href="mailto:info.example@mail.com">info.example@mail.com</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xl-4 mb-30 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="team-card">
-                        <div class="team-head">
-                            <img src="assets/img/team/t-1-4.png" alt="Team Area" class="w-100">
-                            <div class="team-card-links">
-                                <a class="team-links-toggler" href="#"><i class="fas fa-share-alt"></i></a>
-                                <div class="team-social">
-                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fas fa-basketball-ball"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="team-body">
-                            <h3 class="h4 mb-0"><a href="team-details.html" class="text-reset">Jerzzy Lamot</a></h3>
-                            <p class="fs-xs degi text-theme mb-2">Surgeon</p>
-                            <p class="fs-xs">Conceptualize user-centric web-readiness via economically sound e-services. Interactively coordinate next-generation </p>
-                            <div class="">
-                                <p class="fs-xs team-info"><i class="fas fa-phone text-theme"></i><a class="text-reset" href="tel:+592201520156">+592 2015 20156</a></p>
-                                <p class="fs-xs team-info"><i class="fas fa-envelope text-theme"></i><a class="text-reset" href="mailto:info.example@mail.com">info.example@mail.com</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xl-4 mb-30 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="team-card">
-                        <div class="team-head">
-                            <img src="assets/img/team/t-1-5.png" alt="Team Area" class="w-100">
-                            <div class="team-card-links">
-                                <a class="team-links-toggler" href="#"><i class="fas fa-share-alt"></i></a>
-                                <div class="team-social">
-                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fas fa-basketball-ball"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="team-body">
-                            <h3 class="h4 mb-0"><a href="team-details.html" class="text-reset">Peter Parker</a></h3>
-                            <p class="fs-xs degi text-theme mb-2">Specialist</p>
-                            <p class="fs-xs">Conceptualize user-centric web-readiness via economically sound e-services. Interactively coordinate next-generation </p>
-                            <div class="">
-                                <p class="fs-xs team-info"><i class="fas fa-phone text-theme"></i><a class="text-reset" href="tel:+592201520156">+592 2015 20156</a></p>
-                                <p class="fs-xs team-info"><i class="fas fa-envelope text-theme"></i><a class="text-reset" href="mailto:info.example@mail.com">info.example@mail.com</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xl-4 mb-30 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="team-card">
-                        <div class="team-head">
-                            <img src="assets/img/team/t-1-6.png" alt="Team Area" class="w-100">
-                            <div class="team-card-links">
-                                <a class="team-links-toggler" href="#"><i class="fas fa-share-alt"></i></a>
-                                <div class="team-social">
-                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fas fa-basketball-ball"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="team-body">
-                            <h3 class="h4 mb-0"><a href="team-details.html" class="text-reset">John Deo</a></h3>
-                            <p class="fs-xs degi text-theme mb-2">Member</p>
-                            <p class="fs-xs">Conceptualize user-centric web-readiness via economically sound e-services. Interactively coordinate next-generation </p>
-                            <div class="">
-                                <p class="fs-xs team-info"><i class="fas fa-phone text-theme"></i><a class="text-reset" href="tel:+592201520156">+592 2015 20156</a></p>
-                                <p class="fs-xs team-info"><i class="fas fa-envelope text-theme"></i><a class="text-reset" href="mailto:info.example@mail.com">info.example@mail.com</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="vs-pagination pt-lg-30">
-                <ul>
-                    <li><a href="#" class="active">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#"><i class="fas fa-angle-right"></i></a></li>
-                </ul>
+    <div class="main">
+        <div class="tiler"><img src="https://lh3.googleusercontent.com/p/AF1QipNuvXoZ9VcwM1hJtUArABoYAR2Bup1UGWZpU_nc=s1360-w1360-h1020" onclick="showPreview(0)"/></div>
+        <div class="tiler"><img src="https://lh3.googleusercontent.com/p/AF1QipN5hD7CK_si6plkcUjELh3tJoW6ZuiBF1DzTlg=s1360-w1360-h1020" onclick="showPreview(1)"/></div>
+        
+        <div class="tiler"><img style="height: 250px;" src="assets/img/gallery/hospital.png" onclick="showPreview(2)"/>
+        </div>
+        <div class="tiler"><img src="https://lh3.googleusercontent.com/p/AF1QipMnhq3Hd8yu0-Q__wr7pd5Ec7FjNUAWVnv_H9ti=s1360-w1360-h1020" onclick="showPreview(3)"/></div>
+        <div class="tiler"><img src="https://lh3.googleusercontent.com/p/AF1QipPV1mKI3sC5QUZRSiUDpJMUUCOxstW4HHg_OnPi=s1360-w1360-h1020" onclick="showPreview(4)"/></div>
+        <div class="tiler"><img src="https://lh3.googleusercontent.com/p/AF1QipPVb5uJrhYFvYTLSMNlSQGFIFo9YZs8fL6xOuHU=s1360-w1360-h1020" onclick="showPreview(5)"/></div>
+        <div class="tiler"><img src="https://lh3.googleusercontent.com/p/AF1QipOTnuXpLfSzZo8FMoDoKS1kcwmSX7lftzvVV60=s1360-w1360-h1020" onclick="showPreview(6)"/></div>
+        <div class="tiler"><img src="https://lh3.googleusercontent.com/p/AF1QipOzqDFH5JEf_G0IAGHrPlVXK1Kn15HC-KXx9uIS=s1360-w1360-h1020" onclick="showPreview(7)"/></div>
+        <div class="tiler"><img src="https://lh3.googleusercontent.com/p/AF1QipNA3Xb35ltkxRbxgZsbmRZDsvP8aa34Dazynqfs=s1360-w1360-h1020" onclick="showPreview(8)"/></div>
+    </div>
+
+    <!-- Image Preview Overlay -->
+    <div class="preview-overlay" id="previewOverlay">
+        <div class="preview-container">
+            <span id="closeButton" onclick="closePreview()"><i class="fa-regular fa-circle-xmark"></i></span>
+            <img class="preview-image" id="previewImage" src="" alt="Preview Image">
+            <div class="preview-navigation">
+                <button onclick="changePreview(-1)"><i class="fa-solid fa-backward"></i> </button>
+                <button onclick="changePreview(1)"><i class="fa-solid fa-forward"></i> </button>
             </div>
         </div>
-    </section>
+    </div>
+
+    
+    <!--==============================
+      Gallery
+    ==============================-->
+    
     <!--==============================
 			Footer Area
 	==============================-->
@@ -596,6 +524,36 @@ Sidemenu
         All Js File
     ============================== -->
     <!-- Jquery -->
+    <script>
+        const images = [
+            "https://lh3.googleusercontent.com/p/AF1QipNuvXoZ9VcwM1hJtUArABoYAR2Bup1UGWZpU_nc=s1360-w1360-h1020",
+            "https://lh3.googleusercontent.com/p/AF1QipN5hD7CK_si6plkcUjELh3tJoW6ZuiBF1DzTlg=s1360-w1360-h1020",
+            "assets/img/gallery/hospital.png",
+            "https://lh3.googleusercontent.com/p/AF1QipMnhq3Hd8yu0-Q__wr7pd5Ec7FjNUAWVnv_H9ti=s1360-w1360-h1020",
+            "https://lh3.googleusercontent.com/p/AF1QipPV1mKI3sC5QUZRSiUDpJMUUCOxstW4HHg_OnPi=s1360-w1360-h1020",
+            "https://lh3.googleusercontent.com/p/AF1QipPVb5uJrhYFvYTLSMNlSQGFIFo9YZs8fL6xOuHU=s1360-w1360-h1020",
+            "https://lh3.googleusercontent.com/p/AF1QipOTnuXpLfSzZo8FMoDoKS1kcwmSX7lftzvVV60=s1360-w1360-h1020",
+            "https://lh3.googleusercontent.com/p/AF1QipOzqDFH5JEf_G0IAGHrPlVXK1Kn15HC-KXx9uIS=s1360-w1360-h1020",
+            "https://lh3.googleusercontent.com/p/AF1QipNA3Xb35ltkxRbxgZsbmRZDsvP8aa34Dazynqfs=s1360-w1360-h1020"
+        ];
+
+        let currentIndex = 0;
+
+        function showPreview(index) {
+            currentIndex = index;
+            document.getElementById('previewImage').src = images[index];
+            document.getElementById('previewOverlay').style.display = 'block';
+        }
+
+        function changePreview(offset) {
+            currentIndex = (currentIndex + offset + images.length) % images.length;
+            showPreview(currentIndex);
+        }
+
+        function closePreview() {
+            document.getElementById('previewOverlay').style.display = 'none';
+        }
+    </script>
     <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
     <!-- Slick Slider -->
     <script src="assets/js/slick.min.js"></script>

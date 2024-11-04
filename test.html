@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/0b170b98a9.js" crossorigin="anonymous"></script>
+    <title>Image Gallery</title>
+    <style>
+        /* Styles for the image grid */
+        .main {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            margin: auto;
+            gap: 10px;
+        }
+        .tiler {
+            flex: 1 1 calc(33.33% - 10px); /* 3 images per row */
+            cursor: pointer;
+        }
+        .tiler img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* Overlay and Preview Styles */
+        .preview-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+        }
+        .preview-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            max-width: 90%;
+            max-height: 80vh;
+        }
+        .preview-image {
+            display: block;
+            max-width: 100%;
+            max-height: 100%;
+        }
+        .preview-navigation {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .preview-navigation button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+            margin: 0 5px;
+        }
+        #closeButton {
+            cursor: pointer;
+            position: absolute;
+            top: -32px;
+            right: -12px;
+            font-size: 30px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="tiler"><img src="https://lh3.googleusercontent.com/p/AF1QipNuvXoZ9VcwM1hJtUArABoYAR2Bup1UGWZpU_nc=s1360-w1360-h1020" onclick="showPreview(0)"/></div>
+        <div class="tiler"><img src="https://lh3.googleusercontent.com/p/AF1QipN5hD7CK_si6plkcUjELh3tJoW6ZuiBF1DzTlg=s1360-w1360-h1020" onclick="showPreview(1)"/></div>
+        
+        <div class="tiler"><img style="height: 250px;" src="assets/img/gallery/hospital.png" onclick="showPreview(2)"/>
+        </div>
+        <div class="tiler"><img src="https://lh3.googleusercontent.com/p/AF1QipMnhq3Hd8yu0-Q__wr7pd5Ec7FjNUAWVnv_H9ti=s1360-w1360-h1020" onclick="showPreview(3)"/></div>
+        <div class="tiler"><img src="https://lh3.googleusercontent.com/p/AF1QipPV1mKI3sC5QUZRSiUDpJMUUCOxstW4HHg_OnPi=s1360-w1360-h1020" onclick="showPreview(4)"/></div>
+        <div class="tiler"><img src="https://lh3.googleusercontent.com/p/AF1QipPVb5uJrhYFvYTLSMNlSQGFIFo9YZs8fL6xOuHU=s1360-w1360-h1020" onclick="showPreview(5)"/></div>
+        <div class="tiler"><img src="https://lh3.googleusercontent.com/p/AF1QipOTnuXpLfSzZo8FMoDoKS1kcwmSX7lftzvVV60=s1360-w1360-h1020" onclick="showPreview(6)"/></div>
+        <div class="tiler"><img src="https://lh3.googleusercontent.com/p/AF1QipOzqDFH5JEf_G0IAGHrPlVXK1Kn15HC-KXx9uIS=s1360-w1360-h1020" onclick="showPreview(7)"/></div>
+        <div class="tiler"><img src="https://lh3.googleusercontent.com/p/AF1QipNA3Xb35ltkxRbxgZsbmRZDsvP8aa34Dazynqfs=s1360-w1360-h1020" onclick="showPreview(8)"/></div>
+    </div>
+
+    <!-- Image Preview Overlay -->
+    <div class="preview-overlay" id="previewOverlay">
+        <div class="preview-container">
+            <span id="closeButton" onclick="closePreview()"><i class="fa-regular fa-circle-xmark"></i></span>
+            <img class="preview-image" id="previewImage" src="" alt="Preview Image">
+            <div class="preview-navigation">
+                <button onclick="changePreview(-1)"><i class="fa-solid fa-backward"></i> </button>
+                <button onclick="changePreview(1)"><i class="fa-solid fa-forward"></i> </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const images = [
+            "https://lh3.googleusercontent.com/p/AF1QipNuvXoZ9VcwM1hJtUArABoYAR2Bup1UGWZpU_nc=s1360-w1360-h1020",
+            "https://lh3.googleusercontent.com/p/AF1QipN5hD7CK_si6plkcUjELh3tJoW6ZuiBF1DzTlg=s1360-w1360-h1020",
+            "assets/img/gallery/hospital.png",
+            "https://lh3.googleusercontent.com/p/AF1QipMnhq3Hd8yu0-Q__wr7pd5Ec7FjNUAWVnv_H9ti=s1360-w1360-h1020",
+            "https://lh3.googleusercontent.com/p/AF1QipPV1mKI3sC5QUZRSiUDpJMUUCOxstW4HHg_OnPi=s1360-w1360-h1020",
+            "https://lh3.googleusercontent.com/p/AF1QipPVb5uJrhYFvYTLSMNlSQGFIFo9YZs8fL6xOuHU=s1360-w1360-h1020",
+            "https://lh3.googleusercontent.com/p/AF1QipOTnuXpLfSzZo8FMoDoKS1kcwmSX7lftzvVV60=s1360-w1360-h1020",
+            "https://lh3.googleusercontent.com/p/AF1QipOzqDFH5JEf_G0IAGHrPlVXK1Kn15HC-KXx9uIS=s1360-w1360-h1020",
+            "https://lh3.googleusercontent.com/p/AF1QipNA3Xb35ltkxRbxgZsbmRZDsvP8aa34Dazynqfs=s1360-w1360-h1020"
+        ];
+
+        let currentIndex = 0;
+
+        function showPreview(index) {
+            currentIndex = index;
+            document.getElementById('previewImage').src = images[index];
+            document.getElementById('previewOverlay').style.display = 'block';
+        }
+
+        function changePreview(offset) {
+            currentIndex = (currentIndex + offset + images.length) % images.length;
+            showPreview(currentIndex);
+        }
+
+        function closePreview() {
+            document.getElementById('previewOverlay').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
