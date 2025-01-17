@@ -1,10 +1,11 @@
+
 <!doctype html>
 <html class="no-js" lang="zxx">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Medixi - Medical and Health Care HTML Template - Contact Us</title>
+    <title>Medixi - Medical and Health Care HTML Template - Home Eight</title>
     <meta name="author" content="Vecuro">
     <meta name="description" content="Medixi - Medical and Health Care HTML Template">
     <meta name="keywords" content="Medixi - Medical and Health Care HTML Template">
@@ -44,90 +45,138 @@
     <link rel="stylesheet" href="assets/css/animate.min.css">
     <!-- Theme Custom CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
-    <script src="https://kit.fontawesome.com/0b170b98a9.js" crossorigin="anonymous"></script>
-    <style>
-         /* Styles for the image grid */
-         .main {
-            display: flex;
-            flex-wrap: wrap;
-            max-width: 1000px;
-            margin: auto;
-            gap: 10px;
-        }
-        .tiler {
-            flex: 1 1 calc(33.33% - 10px); /* 3 images per row */
-            cursor: pointer;
-        }
-        .tiler img {
-            display: block;
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
 
-        /* Overlay and Preview Styles */
-        .preview-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            z-index: 1000;
+
+
+    <style>
+        /* General Reset */
+      
+        .container1 {
+          max-width: 900px;
+          margin: 0 auto;
+          background: #fff;
+          padding: 30px;
+          border-radius: 12px;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
-        .preview-container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            max-width: 90%;
-            max-height: 80vh;
+    
+        .header {
+          text-align: center;
+          margin-bottom: 30px;
         }
-        .preview-image {
-            display: block;
-            max-width: 100%;
-            max-height: 100%;
+    
+        .header h1 {
+          font-size: 2rem;
+          font-weight: 700;
+          color: #333;
         }
-        .preview-navigation {
-            text-align: center;
-            margin-top: 10px;
+    
+        .header .highlight {
+          color: #e74c3c;
+          font-weight: bold;
+          text-transform: uppercase;
         }
-        .preview-navigation button {
-            background-color: #333;
-            color: #fff;
-            border: none;
-            padding: 8px 16px;
-            cursor: pointer;
-            margin: 0 5px;
+    
+        .features {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 20px;
+          margin-bottom: 30px;
         }
-        #closeButton {
-            cursor: pointer;
-            position: absolute;
-            top: -32px;
-            right: -12px;
-            font-size: 30px;
-            color: white;
+    
+        .feature-box {
+          background: #f8f9fa;
+          border: 1px solid #ccc;
+          border-radius: 8px;
+          overflow: hidden;
+          transition: transform 0.3s, box-shadow 0.3s;
         }
-    </style>
+    
+        .feature-box:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+        }
+    
+        .feature-header {
+          background: #007b5e;
+          color: white;
+          text-align: center;
+          padding: 10px;
+          font-weight: bold;
+          font-size: 1rem;
+        }
+    
+        .feature-content {
+          padding: 10px;
+          font-size: 0.9rem;
+          color: #555;
+          text-align: center;
+        }
+    
+        .footer {
+          text-align: center;
+          margin-top: 30px;
+        }
+    
+        .footer h2 {
+          color: #2c81c7;
+          margin-bottom: 15px;
+          font-size: 1.8rem;
+          font-weight: bold;
+        }
+    
+        .footer ul {
+          list-style: none;
+          padding: 0;
+          font-size: 1rem;
+          line-height: 2;
+        }
+    
+        .footer ul li {
+          margin: 10px 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #555;
+          font-size: 1rem;
+          padding: 8px 15px;
+          border: 1px solid #d4e4ec;
+          border-radius: 8px;
+          background: #eaf6fc;
+          transition: transform 0.3s, box-shadow 0.3s;
+        }
+    
+        .footer ul li:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+          background: #cde9f8;
+          color: #2c81c7;
+        }
+    
+        .footer ul li::before {
+          content: '✔️';
+          margin-right: 10px;
+          color: #2c81c7;
+          font-size: 1.2rem;
+        }
+      </style>
 
 </head>
+
 
 <body class="">
 
 
+    <!--==============================
+     Preloader
+    ==============================-->
   
-
-  <!--==============================
+   <!--==============================
     Mobile Menu
   ============================== -->
   <div class="vs-menu-wrapper">
     <div class="vs-menu-area text-center">
-        <button class="vs-menu-toggle"><i class="fa-solid fa-bars"></i></button>
+        <button class="vs-menu-toggle"><i class="fal fa-times"></i></button>
         <div class="mobile-logo">
             <a href="index.html"><img src="assets/img/KC_Logo.png" alt="Medixi"></a>
         </div>
@@ -166,13 +215,13 @@ Sidemenu
 ============================== -->
 <div class="sidemenu-wrapper d-none d-lg-block  ">
     <div class="sidemenu-content">
-        <button class="closeButton sideMenuCls"><i class="fa-solid fa-x"></i></button>
+        <button class="closeButton sideMenuCls"><i class="far fa-times"></i></button>
         <div class="widget footer-widget  ">
             <div class="vs-widget-about">
                 <div class="footer-logo">
                     <img src="assets/img/KC_Logo.png" alt="logo">
                 </div>
-            
+                
                 <div class="footer-social3">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
@@ -207,7 +256,16 @@ Sidemenu
        
     </div>
 </div>
-  
+    <!--==============================
+    Popup Search Box
+    ============================== -->
+    <div class="popup-search-box d-none d-lg-block  ">
+        <button class="searchClose border-theme text-theme"><i class="fal fa-times"></i></button>
+        <form action="#">
+            <input type="text" class="border-theme" placeholder="What are you looking for">
+            <button type="submit"><i class="fal fa-search"></i></button>
+        </form>
+    </div>
     <!--==============================
         Header Area
     ==============================-->
@@ -238,7 +296,7 @@ Sidemenu
                                     </li>
                                 </ul>
                             </li>
-                            
+                          
                         </ul>
                     </div>
                 </div>
@@ -253,7 +311,7 @@ Sidemenu
                         <div class="row align-items-center justify-content-between">
                             <div class="col-auto">
                                 <div class="header1-logo py-2">
-                                    <a href="index.html"><img src="assets/img/KC_Logo.png" width="350px"></a>
+                                    <a href="index.html"><img src="assets/img/KC_Logo.png" width="350px" alt="Logo" ></a>
                                 </div>
                             </div>
                             <div class="col text-end text-lg-center">
@@ -261,7 +319,7 @@ Sidemenu
                                     <ul>
                                         <li class="mega-menu-wrap">
                                             <a href="index.html"><span>Home</span></a>
-
+                                            
                                         </li>
                                         <li>
                                             <a href="about.html">About</a>
@@ -273,24 +331,22 @@ Sidemenu
                                             <a href="radiation_therapy.html">Radiation Therapy
                                             </a>
                                         </li>
-                                       
                                         <li>
                                             <a href="team.html">Team</a>
                                         </li>
                                         <li>
                                             <a href="gallery.html">Gallery</a>
                                         </li>
-
                                         <li>
                                             <a href="contact.html">Contact</a>
                                         </li>
                                     </ul>
                                 </nav>
                                 <button class="vs-menu-toggle d-inline-block d-lg-none"><i class="fas fa-bars"></i></button>
-                            </div> 
+                            </div>
                             <div class="col-auto gap-3 d-none d-lg-flex">
-                                
-                                <a href="#" class="icon-btn style3 sideMenuToggler"><i class="fa-solid fa-bars"></i></a>
+                                <a href="#" class="icon-btn style3 searchBoxTggler"></a>
+                                <a href="#" class="icon-btn style3 sideMenuToggler"><i class="far fa-bars"></i></a>
                             </div>
                             <div class="col-auto d-none-xxxl">
                                 <div class="header-call phone-box d-flex align-items-center style2">
@@ -308,58 +364,80 @@ Sidemenu
             </div>
         </div>
     </header>
+    <!-- End header-section -->
+
     <!--==============================
-    Breadcumb
-============================== -->
+      Hero Area
+    ==============================-->
+    <div  style="background-image: url('https://html.vecurosoft.com/medixi/demo/assets/img/hero/h-bg-3-3.jpg'); background-repeat: no-repeat; background-position: center center; background-size: cover; height: 285.792px; top: 86.4444px;">
     <div class="breadcumb-wrapper ">
-        <div class="parallax" data-parallax-image="assets/img/breadcurmb/breadcurmb-1-1.jpg"></div>
+        <div class="parallax__container"><div class="parallax" data-parallax-image="https://html.vecurosoft.com/medixi/demo/assets/img/hero/h-bg-3-3.jpg"></div></div>
         <div class="container z-index-common">
             <div class="breadcumb-content">
-                <h1 class="breadcumb-title">Gallery</h1>
-                <div class="breadcumb-menu-wrap">
+                <h1 class="breadcumb-title">Services</h1>
+                <div class="breadcumb-menu-wrap" style="margin-top: 14px!important">
                     <i class="far fa-home-lg"></i>
                     <ul class="breadcumb-menu">
                         <li><a href="index.html">Home</a></li>
-                        <li class="active">Contact Us</li>
+                        <li class="active">Radiation Therapy</li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
-    <!--==============================
-      Gallery
-    ==============================-->
-    <div class="main">
-        <div class="tiler"><img src="https://lh3.googleusercontent.com/p/AF1QipNuvXoZ9VcwM1hJtUArABoYAR2Bup1UGWZpU_nc=s1360-w1360-h1020" onclick="showPreview(0)"/></div>
-        <div class="tiler"><img src="https://lh3.googleusercontent.com/p/AF1QipN5hD7CK_si6plkcUjELh3tJoW6ZuiBF1DzTlg=s1360-w1360-h1020" onclick="showPreview(1)"/></div>
-        
-        <div class="tiler"><img style="height: 250px;" src="assets/img/gallery/hospital.png" onclick="showPreview(2)"/>
-        </div>
-        <div class="tiler"><img src="https://lh3.googleusercontent.com/p/AF1QipMnhq3Hd8yu0-Q__wr7pd5Ec7FjNUAWVnv_H9ti=s1360-w1360-h1020" onclick="showPreview(3)"/></div>
-        <div class="tiler"><img src="https://lh3.googleusercontent.com/p/AF1QipPV1mKI3sC5QUZRSiUDpJMUUCOxstW4HHg_OnPi=s1360-w1360-h1020" onclick="showPreview(4)"/></div>
-        <div class="tiler"><img src="https://lh3.googleusercontent.com/p/AF1QipPVb5uJrhYFvYTLSMNlSQGFIFo9YZs8fL6xOuHU=s1360-w1360-h1020" onclick="showPreview(5)"/></div>
-        <div class="tiler"><img src="https://lh3.googleusercontent.com/p/AF1QipOTnuXpLfSzZo8FMoDoKS1kcwmSX7lftzvVV60=s1360-w1360-h1020" onclick="showPreview(6)"/></div>
-        <div class="tiler"><img src="https://lh3.googleusercontent.com/p/AF1QipOzqDFH5JEf_G0IAGHrPlVXK1Kn15HC-KXx9uIS=s1360-w1360-h1020" onclick="showPreview(7)"/></div>
-        <div class="tiler"><img src="https://lh3.googleusercontent.com/p/AF1QipNA3Xb35ltkxRbxgZsbmRZDsvP8aa34Dazynqfs=s1360-w1360-h1020" onclick="showPreview(8)"/></div>
-    </div>
+    <div>
+    <!-- Hero-sec end -->
 
-    <!-- Image Preview Overlay -->
-    <div class="preview-overlay" id="previewOverlay">
-        <div class="preview-container">
-            <span id="closeButton" onclick="closePreview()"><i class="fa-regular fa-circle-xmark"></i></span>
-            <img class="preview-image" id="previewImage" src="" alt="Preview Image">
-            <div class="preview-navigation">
-                <button onclick="changePreview(-1)"><i class="fa-solid fa-backward"></i> </button>
-                <button onclick="changePreview(1)"><i class="fa-solid fa-forward"></i> </button>
-            </div>
-        </div>
-    </div>
+    <!-- service-section-eight -->
 
+
+
+    <!-- service -->
+    <div class="container1">
+        <header class="header">
+          <h2>Dedicated <span class="highlight">PRECISION</span> Radiation Therapy</h2>
+        </header>
     
-    <!--==============================
-      Gallery
-    ==============================-->
+        <!-- Features Section -->
+        <section class="features">
+          <div class="feature-box">
+            <div class="feature-header">Increased SBRT Accuracy</div>
+            <div class="feature-content">In-Gantry Stereotactic Imaging</div>
+          </div>
+          <div class="feature-box">
+            <div class="feature-header">Focus on Patient Care</div>
+            <div class="feature-content">Autonomous Warm up and QA</div>
+          </div>
+          <div class="feature-box">
+            <div class="feature-header">Enhanced Patient Comfort</div>
+            <div class="feature-content">Wide Bore Gantry</div>
+          </div>
+          <div class="feature-box">
+            <div class="feature-header">Robotics in Action</div>
+            <div class="feature-content">6-D Couch</div>
+          </div>
+          <div class="feature-box">
+            <div class="feature-header">On-Couch to Off-Couch in 9mins</div>
+            <div class="feature-content">With 4-step Intuitive workflow</div>
+          </div>
+        </section>
     
+        <!-- Footer Section -->
+        <footer class="footer">
+          <h2>Affordable · Accessible</h2>
+          <ul>
+            <li>3-D CRT (Three Dimensional Conformal Radiotherapy)</li>
+            <li>IGRT (Image Guided Radiation Therapy)</li>
+            <li>IMRT (Intensity Modulated Radiotherapy)</li>
+            <li>VMAT (Volumetric Modulated ARC Therapy)</li>
+            <li>SRS/SRT (Stereotactic Radiosurgery/Therapy)</li>
+          </ul>
+        </footer>
+      </div>
+    <!-- service -->
+    
+ 
+
     <!--==============================
 			Footer Area
 	==============================-->
@@ -466,55 +544,21 @@ Sidemenu
         </div>
     </footer>
 
-
-
     <!--********************************
 			Code End  Here 
 	******************************** -->
 
-
     <!-- Scroll To Top -->
     <a href="#" class="scrollToTop scroll-bottom  style2"><i class="fas fa-arrow-alt-up"></i></a>
-
-
-
+      
     <!--==============================
         All Js File
     ============================== -->
     <!-- Jquery -->
-    <script>
-        const images = [
-            "https://lh3.googleusercontent.com/p/AF1QipNuvXoZ9VcwM1hJtUArABoYAR2Bup1UGWZpU_nc=s1360-w1360-h1020",
-            "https://lh3.googleusercontent.com/p/AF1QipN5hD7CK_si6plkcUjELh3tJoW6ZuiBF1DzTlg=s1360-w1360-h1020",
-            "assets/img/gallery/hospital.png",
-            "https://lh3.googleusercontent.com/p/AF1QipMnhq3Hd8yu0-Q__wr7pd5Ec7FjNUAWVnv_H9ti=s1360-w1360-h1020",
-            "https://lh3.googleusercontent.com/p/AF1QipPV1mKI3sC5QUZRSiUDpJMUUCOxstW4HHg_OnPi=s1360-w1360-h1020",
-            "https://lh3.googleusercontent.com/p/AF1QipPVb5uJrhYFvYTLSMNlSQGFIFo9YZs8fL6xOuHU=s1360-w1360-h1020",
-            "https://lh3.googleusercontent.com/p/AF1QipOTnuXpLfSzZo8FMoDoKS1kcwmSX7lftzvVV60=s1360-w1360-h1020",
-            "https://lh3.googleusercontent.com/p/AF1QipOzqDFH5JEf_G0IAGHrPlVXK1Kn15HC-KXx9uIS=s1360-w1360-h1020",
-            "https://lh3.googleusercontent.com/p/AF1QipNA3Xb35ltkxRbxgZsbmRZDsvP8aa34Dazynqfs=s1360-w1360-h1020"
-        ];
-
-        let currentIndex = 0;
-
-        function showPreview(index) {
-            currentIndex = index;
-            document.getElementById('previewImage').src = images[index];
-            document.getElementById('previewOverlay').style.display = 'block';
-        }
-
-        function changePreview(offset) {
-            currentIndex = (currentIndex + offset + images.length) % images.length;
-            showPreview(currentIndex);
-        }
-
-        function closePreview() {
-            document.getElementById('previewOverlay').style.display = 'none';
-        }
-    </script>
     <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
     <!-- Slick Slider -->
     <script src="assets/js/slick.min.js"></script>
+    <script src="assets/js/slick-animation.min.js"></script>
     <!-- <script src="assets/js/app.min.js"></script> -->
     <!-- Layerslider -->
     <script src="assets/js/layerslider.utils.js"></script>

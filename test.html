@@ -1,136 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/0b170b98a9.js" crossorigin="anonymous"></script>
-    <title>Image Gallery</title>
-    <style>
-        /* Styles for the image grid */
-        .main {
-            display: flex;
-            flex-wrap: wrap;
-            max-width: 1000px;
-            margin: auto;
-            gap: 10px;
-        }
-        .tiler {
-            flex: 1 1 calc(33.33% - 10px); /* 3 images per row */
-            cursor: pointer;
-        }
-        .tiler img {
-            display: block;
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Radiation Therapy</title>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        /* Overlay and Preview Styles */
-        .preview-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            z-index: 1000;
-        }
-        .preview-container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            max-width: 90%;
-            max-height: 80vh;
-        }
-        .preview-image {
-            display: block;
-            max-width: 100%;
-            max-height: 100%;
-        }
-        .preview-navigation {
-            text-align: center;
-            margin-top: 10px;
-        }
-        .preview-navigation button {
-            background-color: #333;
-            color: #fff;
-            border: none;
-            padding: 8px 16px;
-            cursor: pointer;
-            margin: 0 5px;
-        }
-        #closeButton {
-            cursor: pointer;
-            position: absolute;
-            top: -32px;
-            right: -12px;
-            font-size: 30px;
-            color: white;
-        }
-    </style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #333;
+    }
+
+    .header .highlight {
+      color: #e74c3c;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .feature-box {
+      background: #f8f9fa;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .feature-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .feature-header {
+      background: #007b5e;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    .feature-content {
+      padding: 10px;
+      font-size: 0.9rem;
+      color: #555;
+      text-align: center;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .footer h2 {
+      color: #2c81c7;
+      margin-bottom: 15px;
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    .footer ul {
+      list-style: none;
+      padding: 0;
+      font-size: 1rem;
+      line-height: 2;
+    }
+
+    .footer ul li {
+      margin: 10px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #555;
+      font-size: 1rem;
+      padding: 8px 15px;
+      border: 1px solid #d4e4ec;
+      border-radius: 8px;
+      background: #eaf6fc;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .footer ul li:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      background: #cde9f8;
+      color: #2c81c7;
+    }
+
+    .footer ul li::before {
+      content: '✔️';
+      margin-right: 10px;
+      color: #2c81c7;
+      font-size: 1.2rem;
+    }
+  </style>
 </head>
 <body>
-    <div class="main">
-        <div class="tiler"><img src="https://lh3.googleusercontent.com/p/AF1QipNuvXoZ9VcwM1hJtUArABoYAR2Bup1UGWZpU_nc=s1360-w1360-h1020" onclick="showPreview(0)"/></div>
-        <div class="tiler"><img src="https://lh3.googleusercontent.com/p/AF1QipN5hD7CK_si6plkcUjELh3tJoW6ZuiBF1DzTlg=s1360-w1360-h1020" onclick="showPreview(1)"/></div>
-        
-        <div class="tiler"><img style="height: 250px;" src="assets/img/gallery/hospital.png" onclick="showPreview(2)"/>
-        </div>
-        <div class="tiler"><img src="https://lh3.googleusercontent.com/p/AF1QipMnhq3Hd8yu0-Q__wr7pd5Ec7FjNUAWVnv_H9ti=s1360-w1360-h1020" onclick="showPreview(3)"/></div>
-        <div class="tiler"><img src="https://lh3.googleusercontent.com/p/AF1QipPV1mKI3sC5QUZRSiUDpJMUUCOxstW4HHg_OnPi=s1360-w1360-h1020" onclick="showPreview(4)"/></div>
-        <div class="tiler"><img src="https://lh3.googleusercontent.com/p/AF1QipPVb5uJrhYFvYTLSMNlSQGFIFo9YZs8fL6xOuHU=s1360-w1360-h1020" onclick="showPreview(5)"/></div>
-        <div class="tiler"><img src="https://lh3.googleusercontent.com/p/AF1QipOTnuXpLfSzZo8FMoDoKS1kcwmSX7lftzvVV60=s1360-w1360-h1020" onclick="showPreview(6)"/></div>
-        <div class="tiler"><img src="https://lh3.googleusercontent.com/p/AF1QipOzqDFH5JEf_G0IAGHrPlVXK1Kn15HC-KXx9uIS=s1360-w1360-h1020" onclick="showPreview(7)"/></div>
-        <div class="tiler"><img src="https://lh3.googleusercontent.com/p/AF1QipNA3Xb35ltkxRbxgZsbmRZDsvP8aa34Dazynqfs=s1360-w1360-h1020" onclick="showPreview(8)"/></div>
-    </div>
+  <div class="container">
+    <header class="header">
+      <h1>Dedicated <span class="highlight">PRECISION</span> Radiation Therapy</h1>
+    </header>
 
-    <!-- Image Preview Overlay -->
-    <div class="preview-overlay" id="previewOverlay">
-        <div class="preview-container">
-            <span id="closeButton" onclick="closePreview()"><i class="fa-regular fa-circle-xmark"></i></span>
-            <img class="preview-image" id="previewImage" src="" alt="Preview Image">
-            <div class="preview-navigation">
-                <button onclick="changePreview(-1)"><i class="fa-solid fa-backward"></i> </button>
-                <button onclick="changePreview(1)"><i class="fa-solid fa-forward"></i> </button>
-            </div>
-        </div>
-    </div>
+    <!-- Features Section -->
+    <section class="features">
+      <div class="feature-box">
+        <div class="feature-header">Increased SBRT Accuracy</div>
+        <div class="feature-content">In-Gantry Stereotactic Imaging</div>
+      </div>
+      <div class="feature-box">
+        <div class="feature-header">Focus on Patient Care</div>
+        <div class="feature-content">Autonomous Warm up and QA</div>
+      </div>
+      <div class="feature-box">
+        <div class="feature-header">Enhanced Patient Comfort</div>
+        <div class="feature-content">Wide Bore Gantry</div>
+      </div>
+      <div class="feature-box">
+        <div class="feature-header">Robotics in Action</div>
+        <div class="feature-content">6-D Couch</div>
+      </div>
+      <div class="feature-box">
+        <div class="feature-header">On-Couch to Off-Couch in 9mins</div>
+        <div class="feature-content">With 4-step Intuitive workflow</div>
+      </div>
+    </section>
 
-    <script>
-        const images = [
-            "https://lh3.googleusercontent.com/p/AF1QipNuvXoZ9VcwM1hJtUArABoYAR2Bup1UGWZpU_nc=s1360-w1360-h1020",
-            "https://lh3.googleusercontent.com/p/AF1QipN5hD7CK_si6plkcUjELh3tJoW6ZuiBF1DzTlg=s1360-w1360-h1020",
-            "assets/img/gallery/hospital.png",
-            "https://lh3.googleusercontent.com/p/AF1QipMnhq3Hd8yu0-Q__wr7pd5Ec7FjNUAWVnv_H9ti=s1360-w1360-h1020",
-            "https://lh3.googleusercontent.com/p/AF1QipPV1mKI3sC5QUZRSiUDpJMUUCOxstW4HHg_OnPi=s1360-w1360-h1020",
-            "https://lh3.googleusercontent.com/p/AF1QipPVb5uJrhYFvYTLSMNlSQGFIFo9YZs8fL6xOuHU=s1360-w1360-h1020",
-            "https://lh3.googleusercontent.com/p/AF1QipOTnuXpLfSzZo8FMoDoKS1kcwmSX7lftzvVV60=s1360-w1360-h1020",
-            "https://lh3.googleusercontent.com/p/AF1QipOzqDFH5JEf_G0IAGHrPlVXK1Kn15HC-KXx9uIS=s1360-w1360-h1020",
-            "https://lh3.googleusercontent.com/p/AF1QipNA3Xb35ltkxRbxgZsbmRZDsvP8aa34Dazynqfs=s1360-w1360-h1020"
-        ];
-
-        let currentIndex = 0;
-
-        function showPreview(index) {
-            currentIndex = index;
-            document.getElementById('previewImage').src = images[index];
-            document.getElementById('previewOverlay').style.display = 'block';
-        }
-
-        function changePreview(offset) {
-            currentIndex = (currentIndex + offset + images.length) % images.length;
-            showPreview(currentIndex);
-        }
-
-        function closePreview() {
-            document.getElementById('previewOverlay').style.display = 'none';
-        }
-    </script>
+    <!-- Footer Section -->
+    <footer class="footer">
+      <h2>Affordable · Accessible</h2>
+      <ul>
+        <li>3-D CRT (Three Dimensional Conformal Radiotherapy)</li>
+        <li>IGRT (Image Guided Radiation Therapy)</li>
+        <li>IMRT (Intensity Modulated Radiotherapy)</li>
+        <li>VMAT (Volumetric Modulated ARC Therapy)</li>
+        <li>SRS/SRT (Stereotactic Radiosurgery/Therapy)</li>
+      </ul>
+    </footer>
+  </div>
 </body>
 </html>
