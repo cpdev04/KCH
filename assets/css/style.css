@@ -277,8 +277,18 @@ h6 {
   font-size: 16px;
 }
 
+
+/* small nav logo */
+
+.sm-nav-logo{
+  display: none;
+}
+/* small nav logo */
+
 /* Large devices */
 @media (max-width: 1199px) {
+
+
   .h1,
   h1 {
     font-size: 42px;
@@ -317,6 +327,10 @@ h6 {
 }
 /* Small devices */
 @media (max-width: 767px) {
+  .sm-nav-logo{
+    display: block;
+    margin-top: -35px;
+  }
   .h1,
   h1 {
     font-size: 32px;
@@ -2634,7 +2648,12 @@ textarea.form-control.is-invalid {
 }
 
 .bg-title {
-  background-color: var(--title-color) !important;
+  /* background-color: var(--title-color) !important; */
+  background-color:#efefef ;
+}
+
+.cust-color{
+  color: #27477D !important;
 }
 
 .bg-light2 {
